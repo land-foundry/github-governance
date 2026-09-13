@@ -1,0 +1,80 @@
+# Use Merge Commits for Pull Requests
+
+* **ID:** 001
+* **Date:** 2026-09-12
+* **Status:** Accepted
+* **Authors:** Matt Land
+
+## Context
+
+Repositories in the Land Foundry GitHub organization serve as a professional portfolio as well as an environment for experimenting with software engineering, architecture, automation, and cloud technologies.
+
+A merge strategy is needed for integrating pull requests into protected branches such as `main`. The strategy should support good repository governance while also making the development process visible to people reviewing the repository.
+
+The following GitHub merge strategies were considered:
+
+* **Merge commits** preserve the commits made on the source branch and create an explicit merge commit when the pull request is integrated. This preserves the topology of the repository and shows where independent lines of development were created and merged.
+* **Rebase and merge** preserves the individual commits but rewrites them onto the target branch, producing a linear history and removing the original branch topology.
+* **Squash and merge** combines the pull request into a single commit, producing a concise linear history but removing the individual development commits from the target branch.
+
+Squash merging provides the cleanest permanent history and is well suited to repositories where the pull request is treated as the primary unit of change. Rebase merging provides linear history while retaining meaningful individual commits.
+
+However, both approaches intentionally simplify some aspect of the original development history.
+
+Because these repositories are intended to demonstrate professional software engineering practices, preserving the development process itself has value. Reviewers should be able to inspect individual commits, understand how work progressed on a feature branch, and see explicitly when a branch was integrated.
+
+## Decision
+
+We will use **merge commits as the default pull request merge strategy**.
+
+Repositories will allow pull requests to be merged using GitHub's **Create a merge commit** strategy.
+
+The `Require linear history` branch rule will **not** be enabled because it would prohibit merge commits.
+
+The resulting history may therefore contain explicit branching and merge points:
+
+```text
+          D---E---F
+         /         \
+A---B---C---G---H---M
+```
+
+Where:
+
+* `D`, `E`, and `F` represent development performed on the feature branch.
+* `G` and `H` represent changes made independently to the target branch.
+* `M` represents the merge commit integrating the pull request.
+
+Feature branches should still contain intentional, understandable commits. Choosing merge commits is not intended to preserve low-value commit noise such as repeated `fix typo`, `lint`, or `oops` commits. Developers should use interactive rebasing or other local Git techniques when appropriate to organize a branch before submitting or merging a pull request.
+
+Pull requests remain the required mechanism for integrating changes into protected branches. Required reviews, status checks, and other repository governance controls are independent of the selected merge strategy.
+
+## Consequences
+
+Using merge commits will preserve more information about how development occurred. Repository history will show individual feature commits as well as the point at which each pull request was integrated.
+
+This provides greater transparency for a professional portfolio but produces a more complex Git history than squash or rebase workflows.
+
+* **Positive Impacts:**
+
+  * Preserves the complete commit history of feature branches.
+  * Preserves the relationship between branches and their merge points.
+  * Makes the actual development and integration process visible to repository reviewers.
+  * Demonstrates familiarity with Git branching, pull requests, code review, and integration workflows.
+  * Allows meaningful individual commits within a pull request to remain visible after merge.
+  * Avoids rewriting commit identities during integration.
+  * Provides explicit merge commits that identify when a pull request entered the target branch.
+
+* **Negative Impacts / Trade-offs:**
+
+  * Repository history will be non-linear.
+  * `git log --graph` and similar history views may become more complex as concurrent development increases.
+  * Poorly structured feature-branch commits will remain visible in the permanent history.
+  * Finding major logical changes can be less straightforward than in a squash-based repository where each pull request corresponds to one commit.
+  * The `Require linear history` GitHub branch rule cannot be enabled while merge commits are the selected strategy.
+
+* **Risks:**
+
+  * **Commit noise may reduce the readability of repository history.** Mitigate this by encouraging small, meaningful commits and cleaning up obviously temporary commits before merging.
+  * **Complex branch topology may make history harder to understand as repository activity increases.** Mitigate this through short-lived feature branches, descriptive pull requests, clear merge commit messages, and consistent branch naming.
+  * **Merge commits may be interpreted as unnecessary noise for very small changes.** Accept this trade-off in favor of maintaining a consistent integration strategy and preserving development transparency across the portfolio.
