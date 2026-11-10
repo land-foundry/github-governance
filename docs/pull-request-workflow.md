@@ -1,8 +1,11 @@
-# Contributing
+# Pull Request Workflow
 
-Thank you for contributing to this repository.
+This workflow applies to repositories in the Land Foundry GitHub organization.
 
-The goal of this project is to maintain a professional and understandable development history while using pull requests, automated checks, and branch protections to govern changes to `main`.
+The goal is to maintain a professional and understandable development history while using pull requests, automated checks, and branch protections to govern changes to `main`.
+
+See the [repository governance standard](repository-governance.md) for required
+controls and exceptions, and [ADR-001](adr/001-squash-merges.md) for the merge-strategy decision.
 
 ## Main Branch Merge Strategy
 
