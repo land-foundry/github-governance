@@ -1,9 +1,11 @@
 # Land Foundry — Source Control & Change History Governance
 
-**Version:** 1.0 — Draft  
-**Status:** Proposed  
+**Version:** 1.0  
+**Status:** Accepted  
 **Scope:** Software engineering repositories  
-**Owner:** Engineering
+**Owner:** Engineering  
+**Adoption:** [PR #1](https://github.com/land-foundry/github-governance/pull/1)  
+**Supersedes:** [ADR-001](adr/001-squash-merges.md)
 
 ---
 

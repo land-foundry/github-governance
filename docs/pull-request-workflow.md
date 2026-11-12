@@ -2,7 +2,7 @@
 
 This workflow applies to repositories in the Land Foundry GitHub organization. It implements the [Source Control & Change History Governance](source-control-change-history-governance.md), which is the source of authority for branching, commits, PR context, and merging. See the [repository governance standard](repository-governance.md) for required controls and exceptions.
 
-This revision is proposed alongside the replacement governance policy. It takes effect upon approval and merge of that proposal. [ADR-001](adr/001-squash-merges.md) records the superseded squash-merge decision for historical reference.
+The replacement policy was adopted in [PR #1](https://github.com/land-foundry/github-governance/pull/1). [ADR-001](adr/001-squash-merges.md) records the superseded squash-merge decision for historical reference.
 
 ## Short-Lived Branches
 
