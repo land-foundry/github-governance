@@ -2,10 +2,12 @@
 
 * **ID:** 001
 * **Date:** 2026-09-12
-* **Status:** Superseded by [Source Control & Change History Governance](../source-control-change-history-governance.md)
+* **Status:** Superseded by [ADR-002: Use merge commits with curated engineering history](002-merge-commits.md)
 * **Authors:** Matt Land
 
 ## Supersession
+
+[ADR-002](002-merge-commits.md) records the replacement merge-strategy decision.
 
 The replacement policy adopts merge commits with curated Conventional Commits and context-rich PRs, preserving progressive disclosure from engineering outcomes to implementation details. This supersession took effect when the replacement policy was merged in [PR #1](https://github.com/land-foundry/github-governance/pull/1).
 
