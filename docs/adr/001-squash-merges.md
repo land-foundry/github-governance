@@ -7,7 +7,7 @@
 
 ## Supersession
 
-The replacement policy adopts merge commits with curated Conventional Commits and context-rich PRs, preserving progressive disclosure from engineering outcomes to implementation details. This supersession is proposed in the same PR as the replacement policy and takes effect when that PR is approved and merged.
+The replacement policy adopts merge commits with curated Conventional Commits and context-rich PRs, preserving progressive disclosure from engineering outcomes to implementation details. This supersession took effect when the replacement policy was merged in [PR #1](https://github.com/land-foundry/github-governance/pull/1).
 
 The original decision and consequences below are retained as historical context. They no longer prescribe the workflow after adoption. See the [pull request workflow](../pull-request-workflow.md) for the replacement procedure. Adoption requires reviewing merge-method settings and removing any linear-history requirement that would prevent merge commits; this document does not change GitHub settings.
 

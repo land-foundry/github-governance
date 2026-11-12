@@ -2,6 +2,8 @@
 
 This standard defines the minimum governance controls applied to repositories within the Land Foundry GitHub organization.
 
+The [Source Control & Change History Governance](source-control-change-history-governance.md) defines how engineering changes and their context are structured and retained. The [pull request workflow](pull-request-workflow.md) applies that policy. This standard defines the protection baseline and additional controls by repository classification; documentation-only repositories do not inherit software-specific checks merely by following the change-history workflow.
+
 The objectives are to:
 
 * protect important repository history and content;
@@ -167,6 +169,16 @@ This protects:
 * commit references;
 * downstream automation;
 * collaborative workflows.
+
+---
+
+## 3.8 Preserve Meaningful Change History
+
+Apply the source control policy's short-lived PR branches, curated Conventional Commits, contextual PR descriptions, and standard merge-commit integration. This governance repository follows the same workflow. Document approved merge-strategy exceptions under the policy.
+
+When enforcing merge commits, allow merge commits and do not require linear history. Squash and rebase merging should be disabled unless an approved exception applies. Preserve the existing approval, conversation-resolution, force-push, and deletion controls.
+
+Use deterministic automation for objective requirements and human review for meaningful commit boundaries, scope, rationale, and architectural judgment. Maintainers must verify actual rulesets and merge settings separately; policy text is not evidence that controls are configured.
 
 ---
 
