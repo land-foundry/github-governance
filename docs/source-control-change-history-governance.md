@@ -1,11 +1,11 @@
 # Land Foundry — Source Control & Change History Governance
 
-**Version:** 1.0  
+**Version:** 1.1\
 **Status:** Accepted  
 **Scope:** Software engineering repositories  
 **Owner:** Engineering  
 **Adoption:** [PR #1](https://github.com/land-foundry/github-governance/pull/1)  
-**Supersedes:** [ADR-001](adr/001-squash-merges.md)
+**Decision records:** [ADR-002: Merge commits](adr/002-merge-commits.md), [ADR-003: Branching](adr/003-trunk-based-development.md)
 
 ---
 
@@ -23,6 +23,8 @@ Its primary objectives are to:
 - Establish consistent conventions that can be enforced through automation and reused by engineering agents and skills.
 
 Source control history is considered an **engineering knowledge asset**, not merely a record of development activity.
+
+This policy owns current operational requirements. ADRs record strategy decisions, alternatives, rationale, and consequences; the contributor workflow describes their application. Reference the applicable ADR for a strategy decision rather than duplicating its rationale here. ADR-001 is superseded historical context; ADR-002 records its replacement.
 
 ## 2. Governing Principles
 
@@ -80,13 +82,7 @@ Changes MUST satisfy applicable quality gates before integration. Incomplete fun
 
 ### 3.1 Standard model
 
-Land Foundry adopts **trunk-based development with short-lived pull request branches**.
-
-`main` is the authoritative integration branch.
-
-Developers and agents MUST create short-lived branches for changes requiring PR review.
-
-Long-lived development branches are discouraged.
+Repositories MUST follow the branching model recorded in [ADR-003](adr/003-trunk-based-development.md). The requirements below govern its operation.
 
 ### 3.2 Branch lifecycle
 
@@ -301,11 +297,7 @@ PR descriptions SHOULD be updated when the final implementation materially diffe
 
 ### 6.1 Standard merge method
 
-Land Foundry adopts **merge commits** as its standard integration method.
-
-This approach preserves the original commits and their relationship to the integrated feature branch.
-
-Merge commits provide an identifiable integration boundary, while retaining the individual engineering changes that make up the PR.
+Repositories MUST use the standard integration method recorded in [ADR-002](adr/002-merge-commits.md), unless an exception is approved under section 6.4. That ADR records the decision and its tradeoffs; the requirements below govern integration readiness and enforcement.
 
 ### 6.2 Merge requirements
 
@@ -504,11 +496,11 @@ These artifacts SHOULD reference this policy as their source of authority rather
 
 Land Foundry adopts the following engineering standards:
 
-- **Branching:** Trunk-based development with short-lived PR branches.
+- **Branching:** Follow [ADR-003](adr/003-trunk-based-development.md) and the operational requirements in section 3.
 - **Commits:** Curated, meaningful, intentional engineering changes.
 - **Commit messages:** Conventional Commits with additional rationale when needed.
 - **Pull requests:** Small, cohesive, context-rich descriptions of engineering outcomes.
-- **Merging:** Merge commits preserving approved individual commit history.
+- **Merging:** Follow [ADR-002](adr/002-merge-commits.md) and the integration requirements in section 6.
 - **Integration:** Protected `main` with automated validation and engineer approval.
 - **Deployment:** Immutable artifacts and explicit release promotion independent of branch structure.
 - **Agentic development:** Progressive context discovery with human accountability.
