@@ -28,6 +28,7 @@ Start with repository documentation for onboarding. For a historical change, rea
 
 - [ADR-001: Use squash merges for pull requests (superseded)](docs/adr/001-squash-merges.md)
 - [ADR-002: Use merge commits with curated engineering history](docs/adr/002-merge-commits.md)
+- [ADR-003: Use trunk-based development with short-lived PR branches](docs/adr/003-trunk-based-development.md)
 - [ADR template](templates/adr.md)
 
 Preserve superseded decisions as historical context and link their replacements.
